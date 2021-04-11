@@ -10,3 +10,4 @@ script:
   - make lint || true
 after_success:
   - make docker_build
+  - make docker_push
