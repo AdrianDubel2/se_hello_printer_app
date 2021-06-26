@@ -6,10 +6,15 @@ deps:
 
 test:
 	PYTHONPATH=. py.test
-	PYTHONPATH=. py.test -s --cov=. --cov-report xml \
---cov-report term \
---junit-xml=test_results.xml
-  
+
+test_cov:
+	PYTHONPATH=. py.test --verbose -s --cov=hello_world --cov-report xml --cov-report term-missing
+
+test_xunit:
+	$ PYTHONPATH=. py.test -s --cov=. --cov-report xml \
+  --cov-report term \
+  --junit-xml=test_results.xml
+
 run:
 	python main.py
 
